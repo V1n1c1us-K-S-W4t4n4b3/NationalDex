@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="numb_pokemontint">#8B8D8F</color>
+    <color name="leaf_type">#59CA5D</color>
+    <color name="poison_type">#9A72DF</color>
+
 </resources>

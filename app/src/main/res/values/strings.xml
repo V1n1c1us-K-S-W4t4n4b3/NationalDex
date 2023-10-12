@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">First_Generation_Pokedex.git</string>
+    <string name="numb_pokemon">#0001</string>
+    <string name="name_pokemon">Bulbasaur</string>
+    <string name="type1">Type 1</string>
+    <string name="type2">Type 2</string>
+
 </resources>
