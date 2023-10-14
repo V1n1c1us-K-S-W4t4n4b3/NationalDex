@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="12dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -12,16 +14,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp">
 
         <ImageView
             android:id="@+id/pokemon_image"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="16dp"
             android:background="@drawable/bulbasaur001"
+            android:contentDescription="@string/name_pokemon"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,9 +58,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="8dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_pokemon">
@@ -72,8 +77,10 @@
                 android:text="@string/type1"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="12dp" />
 
             <TextView
                 android:id="@+id/tv_type2"
@@ -87,8 +94,10 @@
                 android:text="@string/type2"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="12dp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
