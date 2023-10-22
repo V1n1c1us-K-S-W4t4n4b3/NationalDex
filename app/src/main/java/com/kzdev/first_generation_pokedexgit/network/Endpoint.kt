@@ -4,9 +4,8 @@ import com.kzdev.first_generation_pokedexgit.model.Pokemon
 import retrofit2.Call
 import retrofit2.http.GET
 
-interface Endpoint {
+interface EndPoint {
 
     @GET("pokemon?limit=100000&offset=0")
-    fun getall(): Call<List<Pokemon>>
-
+    fun getAll(): Call<List<Pokemon>>
 }
