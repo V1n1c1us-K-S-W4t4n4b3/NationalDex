@@ -1,8 +1,18 @@
-package com.kzdev.first_generation_pokedexgit.api.model
+package com.kzdev.first_generation_pokedexgit.model
+
+import android.media.Image
 
 data class Pokemon(
-    val number: Int,
+    val id: Int,
+    val image:Image,
+    val baseExperience: Int,
+    val forms:PokemonForms,
+    val height: Int,
+    val locationArea: String,
+    val moves:PokemonMoves,
+    val status:PokemonStatus,
     val name: String,
-    val firstType: String,
-    val secondType: String
+    val types:PokemonTypes,
+    val weight: Int,
+    val abilities: PokemonAbilities
 )
