@@ -1,4 +1,4 @@
-package com.kzdev.first_generation_pokedexgit.view
+package com.kzdev.first_generation_pokedexgit.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
