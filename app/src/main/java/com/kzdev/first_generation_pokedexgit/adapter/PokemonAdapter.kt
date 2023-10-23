@@ -1,13 +1,11 @@
-package com.kzdev.first_generation_pokedexgit.ui
+package com.kzdev.first_generation_pokedexgit.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kzdev.first_generation_pokedexgit.R
-import com.kzdev.first_generation_pokedexgit.model.Pokemon
 import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokeResults
 import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokemonAll
 

@@ -1,10 +1,11 @@
-package com.kzdev.first_generation_pokedexgit.ui
+package com.kzdev.first_generation_pokedexgit.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kzdev.first_generation_pokedexgit.adapter.PokemonAdapter
 import com.kzdev.first_generation_pokedexgit.databinding.ActivityMainBinding
 import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokeResults
 import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokemonAll
@@ -51,28 +52,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun getData() {
 
-        val retrofitClient = NetWorkUtils.getRetrofitInstance("https://pokeapi.co/api/v2/")
+            val retrofitClient = NetWorkUtils.getRetrofitInstance("https://pokeapi.co/api/v2/")
 
-        val endPoint = retrofitClient.create(EndPoint::class.java)
-        val callback = endPoint.getAll()
+            val endPoint = retrofitClient.create(EndPoint::class.java)
+            val callback = endPoint.getAll()
 
-        callback.enqueue(object : Callback<PokemonAll> {
-            override fun onFailure(call: Call<PokemonAll>, t: Throwable) {
-                //  Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
-                t.printStackTrace()
-            }
-
-            override fun onResponse(
-                call: Call<PokemonAll>,
-                response: Response<PokemonAll>,
-            ) {
-                Log.i("Test", "ok")
-
-                // com o ?.let tenho certesa q passa uma lista msm q vazia
-                response.body()?.let {// qm chamar aqui?
-                    setUpRecyclerView(it)
+            callback.enqueue(object : Callback<PokemonAll> {
+                override fun onFailure(call: Call<PokemonAll>, t: Throwable) {
+                    //  Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
+                    t.printStackTrace()
                 }
-            }
-        })
+
+                override fun onResponse(
+                    call: Call<PokemonAll>,
+                    response: Response<PokemonAll>,
+                ) {
+                    Log.i("Test", "ok")
+
+                    // com o ?.let tenho certesa q passa uma lista msm q vazia
+                    response.body()?.let {// qm chamar aqui?
+                        setUpRecyclerView(it)
+                    }
+                }
+            })
     }
 }

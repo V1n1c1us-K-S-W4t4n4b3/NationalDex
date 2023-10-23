@@ -15,10 +15,10 @@
         android:theme="@style/Theme.First_Generation_Pokedexgit"
         tools:targetApi="31">
         <activity
-            android:name=".ui.PokemonInfoActivity"
+            android:name=".activity.PokemonInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
