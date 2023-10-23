@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getData() {
 
+            // declarar a url base
             val retrofitClient = NetWorkUtils.getRetrofitInstance("https://pokeapi.co/api/v2/")
 
             val endPoint = retrofitClient.create(EndPoint::class.java)
