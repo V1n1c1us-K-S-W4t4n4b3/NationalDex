@@ -4,7 +4,7 @@ import android.media.Image
 
 data class Pokemon(
     val id: Int,
-    val image:PokemonImage,
+    val sprites:PokemonImage,
     val baseExperience: Int,
     val forms:PokemonForms,
     val height: Int,
@@ -12,7 +12,7 @@ data class Pokemon(
     val moves:PokemonMoves,
     val status:PokemonStatus,
     val name: String,
-    val types:PokemonTypes,
+    val types:List<PokemonTypes>,
     val weight: Int,
     val abilities: PokemonAbilities
 )
