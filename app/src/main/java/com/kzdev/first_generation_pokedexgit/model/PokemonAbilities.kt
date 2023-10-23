@@ -1,16 +1,13 @@
 package com.kzdev.first_generation_pokedexgit.model
 
+import com.google.gson.annotations.SerializedName
+
 data class PokemonAbilities(
 
-    val nameAbility1: String,
-    val slot1: Int,
+    val nameAbility: Ability,
 
-    val nameAbility2: String,
-    val slot2: Int,
+    @SerializedName("is_hidden")
+    val isHidden: Boolean,
 
-    val nameAbility3: String,
-    val slot3: Int,
-
-    val nameAbility4: String,
-    val slot4: Int
+    val slot1: Int
 )

@@ -6,13 +6,12 @@ data class Pokemon(
     val id: Int,
     val sprites:PokemonImage,
     val baseExperience: Int,
-    val forms:PokemonForms,
+    val forms:List<PokemonForms>,
     val height: Int,
     val locationArea: String,
-    val moves:PokemonMoves,
     val status:PokemonStatus,
     val name: String,
     val types:List<PokemonTypes>,
     val weight: Int,
-    val abilities: PokemonAbilities
+    val abilities: List<PokemonAbilities>
 )
