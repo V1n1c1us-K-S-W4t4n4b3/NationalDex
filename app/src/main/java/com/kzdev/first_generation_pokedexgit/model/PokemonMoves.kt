@@ -1,5 +1,0 @@
-package com.kzdev.first_generation_pokedexgit.model
-
-data class PokemonMoves(
-    val move: PokemonMove
-)
