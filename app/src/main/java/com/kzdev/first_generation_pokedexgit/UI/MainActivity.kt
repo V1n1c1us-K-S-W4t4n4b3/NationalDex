@@ -1,11 +1,13 @@
 package com.kzdev.first_generation_pokedexgit.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kzdev.first_generation_pokedexgit.databinding.ActivityMainBinding
-import com.kzdev.first_generation_pokedexgit.model.Pokemon
+import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokeResults
+import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokemonAll
 import com.kzdev.first_generation_pokedexgit.network.EndPoint
 import com.kzdev.first_generation_pokedexgit.network.NetWorkUtils
 import retrofit2.Call
@@ -25,33 +27,44 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setUpRecyclerView(dataSet: List<Pokemon>) {
+    private fun openPokemonInfo(pokeResults: PokeResults) {
+        val intent = Intent(this@MainActivity, PokemonInfoActivity::class.java)
+
+        intent.putExtra("name", pokeResults.name)
+        intent.putExtra("url", pokeResults.url)
+
+        startActivity(intent)
+    }
+
+    private fun setUpRecyclerView(dataSet: PokemonAll) {
 
         val rvPokemon = binding.rvPokemons
 
         rvPokemon.layoutManager = LinearLayoutManager(this)
-        rvPokemon.adapter = PokemonAdapter(dataSet)
+        rvPokemon.adapter = PokemonAdapter(dataSet) {
+
+            openPokemonInfo(it)
+
+        }
 
     }
 
-    fun getData() {
+    private fun getData() {
 
-        val retrofitClient = NetWorkUtils.getRetrofitInstance(
-            " https://pokeapi.co/api/v2/")
+        val retrofitClient = NetWorkUtils.getRetrofitInstance("https://pokeapi.co/api/v2/")
 
         val endPoint = retrofitClient.create(EndPoint::class.java)
         val callback = endPoint.getAll()
 
-        callback.enqueue(object : Callback<List<Pokemon>> {
-            override fun onFailure(call: Call<List<Pokemon>>, t: Throwable) {
-              //  Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
+        callback.enqueue(object : Callback<PokemonAll> {
+            override fun onFailure(call: Call<PokemonAll>, t: Throwable) {
+                //  Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
                 t.printStackTrace()
-
             }
 
             override fun onResponse(
-                call: Call<List<Pokemon>>,
-                response: Response<List<Pokemon>>,
+                call: Call<PokemonAll>,
+                response: Response<PokemonAll>,
             ) {
                 Log.i("Test", "ok")
 
