@@ -15,6 +15,9 @@
         android:theme="@style/Theme.First_Generation_Pokedexgit"
         tools:targetApi="31">
         <activity
+            android:name=".ui.PokemonInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
