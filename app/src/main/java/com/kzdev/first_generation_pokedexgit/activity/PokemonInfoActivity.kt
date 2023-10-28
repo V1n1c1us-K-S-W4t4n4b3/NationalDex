@@ -44,9 +44,7 @@ class PokemonInfoActivity : AppCompatActivity() {
 
     private fun getData() {
 
-        //
         val retrofitClient = NetWorkUtils.getRetrofitInstance("https://pokeapi.co/api/v2/")
-
         val endPoint = retrofitClient.create(EndPoint::class.java)
         val callback = endPoint.getPokemon(url)
 
@@ -75,21 +73,35 @@ class PokemonInfoActivity : AppCompatActivity() {
     fun colorType(type: PokemonType): Int {
 
         return when (type.name) {
-            "fire" -> getColor(R.color.red)
+            "fairy" -> getColor(R.color.light_pink)
+            "steel" -> getColor(R.color.gray)
+            "dark" -> getColor(R.color.brown)
+            "dragon" -> getColor(R.color.dark_black_pourple)
+            "ghost" -> getColor(R.color.dark_pourple)
+            "rock" -> getColor(R.color.dark_yellow)
+            "bug" -> getColor(R.color.light_green)
+            "psychc" -> getColor(R.color.pink)
+            "flying" -> getColor(R.color.light_pourple)
+            "ground" -> getColor(R.color.light_yellow)
+            "poison" -> getColor(R.color.poison)
+            "fight" -> getColor(R.color.red)
+            "ice" -> getColor(R.color.ice)
+            "grass" -> getColor(R.color.green)
+            "electr" -> getColor(R.color.yellow)
             "water" -> getColor(R.color.blue)
+            "fire" -> getColor(R.color.orange)
+            "normal" -> getColor(R.color.beige)
 
             else -> getColor(R.color.black)
         }
-
     }
 
     fun setUpView(pokemon: Pokemon) {
 
 
-        val format = String.format("#%03d", pokemon.id)
-
-        binding.tvNamePokemon.text = pokemon.name
+        val format = String.format("#%04d", pokemon.id)
         binding.tvNumbPokemon.text = format
+        binding.tvNamePokemon.text = pokemon.name
 
         Glide.with(this).load(pokemon.sprites.frontDefault).into(binding.pokemonImage)
 
