@@ -24,7 +24,6 @@ class PokemonInfoActivity : AppCompatActivity() {
 
     private lateinit var url: String
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonInfoBinding.inflate(layoutInflater)
@@ -35,7 +34,6 @@ class PokemonInfoActivity : AppCompatActivity() {
         getData()
 
     }
-
 
     private fun receptor() {
         url = intent.getStringExtra("url").toString()
@@ -76,18 +74,18 @@ class PokemonInfoActivity : AppCompatActivity() {
             "fairy" -> getColor(R.color.light_pink)
             "steel" -> getColor(R.color.gray)
             "dark" -> getColor(R.color.brown)
-            "dragon" -> getColor(R.color.dark_black_pourple)
-            "ghost" -> getColor(R.color.dark_pourple)
+            "dragon" -> getColor(R.color.dark_black_purple)
+            "ghost" -> getColor(R.color.dark_purple)
             "rock" -> getColor(R.color.dark_yellow)
             "bug" -> getColor(R.color.light_green)
-            "psychc" -> getColor(R.color.pink)
-            "flying" -> getColor(R.color.light_pourple)
+            "psychic" -> getColor(R.color.pink)
+            "flying" -> getColor(R.color.light_purple)
             "ground" -> getColor(R.color.light_yellow)
             "poison" -> getColor(R.color.poison)
             "fight" -> getColor(R.color.red)
             "ice" -> getColor(R.color.ice)
             "grass" -> getColor(R.color.green)
-            "electr" -> getColor(R.color.yellow)
+            "electric" -> getColor(R.color.yellow)
             "water" -> getColor(R.color.blue)
             "fire" -> getColor(R.color.orange)
             "normal" -> getColor(R.color.beige)
@@ -98,13 +96,11 @@ class PokemonInfoActivity : AppCompatActivity() {
 
     fun setUpView(pokemon: Pokemon) {
 
-
         val format = String.format("#%04d", pokemon.id)
         binding.tvNumbPokemon.text = format
         binding.tvNamePokemon.text = pokemon.name
 
         Glide.with(this).load(pokemon.sprites.frontDefault).into(binding.pokemonImage)
-
 
         if (pokemon.types.size >= 1) {
             binding.tvType1.text = pokemon.types[0].type.name

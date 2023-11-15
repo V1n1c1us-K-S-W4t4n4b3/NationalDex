@@ -5,7 +5,7 @@
     <color name="numb_pokemontint">#8B8D8F</color>
     <color name="green">#59CA5D</color>
     <color name="light_green">#7CA54C</color>
-    <color name="pourple">#9A72DF</color>
+    <color name="purple">#9A72DF</color>
     <color name="red">#D3D60000</color>
     <color name="blue">#3F51B5</color>
     <color name="orange">#FF5722</color>
@@ -16,11 +16,11 @@
     <color name="light_pink">#E681D5</color>
     <color name="brown">#4A2329</color>
     <color name="beige">#CDB289</color>
-    <color name="light_pourple">#A49BF6</color>
+    <color name="light_purple">#A49BF6</color>
     <color name="poison">#4201B6</color>
     <color name="ice">#00BCD4</color>
     <color name="gray">#7A7A7A</color>
-    <color name="dark_pourple">#433855</color>
-    <color name="dark_black_pourple">#251049</color>
+    <color name="dark_purple">#433855</color>
+    <color name="dark_black_purple">#251049</color>
 
 </resources>
