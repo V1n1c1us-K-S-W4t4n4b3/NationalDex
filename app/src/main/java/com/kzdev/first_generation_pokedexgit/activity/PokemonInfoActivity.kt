@@ -1,10 +1,9 @@
 package com.kzdev.first_generation_pokedexgit.activity
 
-import android.media.AudioMetadata
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.kzdev.first_generation_pokedexgit.R
 import com.kzdev.first_generation_pokedexgit.databinding.ActivityPokemonInfoBinding
@@ -15,29 +14,23 @@ import com.kzdev.first_generation_pokedexgit.network.NetWorkUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.sql.Types
-import java.text.Format
 
 class PokemonInfoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityPokemonInfoBinding
+    private val binding by lazy { ActivityPokemonInfoBinding.inflate(layoutInflater) }
 
     private lateinit var url: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPokemonInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         receptor()
-
         getData()
-
     }
 
     private fun receptor() {
         url = intent.getStringExtra("url").toString()
-
     }
 
     private fun getData() {
@@ -58,17 +51,14 @@ class PokemonInfoActivity : AppCompatActivity() {
             ) {
                 Log.i("Test", "ok")
 
-                // com o ?.let tenho certesa q passa uma lista msm q vazia
-                response.body()?.let {// qm chamar aqui?
-
+                response.body()?.let {
                     setUpView(it)
-
                 }
             }
         })
     }
 
-    fun colorType(type: PokemonType): Int {
+    private fun colorType(type: PokemonType): Int {
 
         return when (type.name) {
             "fairy" -> getColor(R.color.light_pink)
@@ -98,22 +88,23 @@ class PokemonInfoActivity : AppCompatActivity() {
 
         val format = String.format("#%04d", pokemon.id)
         binding.tvNumbPokemon.text = format
-        binding.tvNamePokemon.text = pokemon.name
+
+        binding.toolbar.setNavigationOnClickListener { finish() }
+
+        binding.toolbar.title = pokemon.name
 
         Glide.with(this).load(pokemon.sprites.frontDefault).into(binding.pokemonImage)
 
-        if (pokemon.types.size >= 1) {
+        if (pokemon.types.isNotEmpty()) {
             binding.tvType1.text = pokemon.types[0].type.name
             binding.tvType1.setBackgroundColor(colorType(pokemon.types[0].type))
             binding.tvType2.visibility = View.GONE
-
         }
 
         if (pokemon.types.size >= 2) {
             binding.tvType2.text = pokemon.types[1].type.name
             binding.tvType2.setBackgroundColor(colorType(pokemon.types[1].type))
             binding.tvType2.visibility = View.VISIBLE
-
         }
     }
 }

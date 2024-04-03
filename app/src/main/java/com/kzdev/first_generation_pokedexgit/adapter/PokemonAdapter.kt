@@ -1,53 +1,37 @@
 package com.kzdev.first_generation_pokedexgit.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.kzdev.first_generation_pokedexgit.R
-import com.kzdev.first_generation_pokedexgit.model.Pokemon
+import com.kzdev.first_generation_pokedexgit.databinding.PokemonItemBinding
 import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokeResults
 import com.kzdev.first_generation_pokedexgit.modelrecyclerview.PokemonAll
 
 class PokemonAdapter(
     private val dataSet: PokemonAll,
-    private val initPokeInfo: (PokeResults) -> Unit,
-) :
-    RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+    private val onItemClicked: (PokeResults) -> Unit,
+) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        val id: TextView
-        val tvName: TextView
-
-        init {
-
-            id = view.findViewById(R.id.tv_numb_pokemon)
-            tvName = view.findViewById(R.id.tv_name_pokemon)
-
-        }
-    }
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.pokemon_item, viewGroup, false)
-
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = PokemonItemBinding.inflate(inflater, parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
+        val name = dataSet.results[position].name
         val format = String.format("#%04d", position + 1)
-        viewHolder.id.text = format
 
-        viewHolder.tvName.text = dataSet.results[position].name
+        viewHolder.binding.tvNumbPokemon.text = format
+        viewHolder.binding.tvNamePokemon.text = name
+
         viewHolder.itemView.setOnClickListener {
-
-            initPokeInfo(dataSet.results[position])
+            onItemClicked(dataSet.results[position])
         }
     }
 
     override fun getItemCount() = dataSet.results.size
+
+    class ViewHolder(val binding: PokemonItemBinding) : RecyclerView.ViewHolder(binding.root)
 }
