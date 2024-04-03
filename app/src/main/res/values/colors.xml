@@ -22,5 +22,6 @@
     <color name="gray">#7A7A7A</color>
     <color name="dark_purple">#433855</color>
     <color name="dark_black_purple">#251049</color>
+    <color name="margin_background_red">#CEC33A3A</color>
 
 </resources>

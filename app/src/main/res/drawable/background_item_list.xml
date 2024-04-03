@@ -5,7 +5,7 @@
         android:right="0dp"
         android:top="0dp">
         <shape android:shape="rectangle">
-            <solid android:color="#CEC33A3A" />
+            <solid android:color="@color/margin_background_red" />
             <corners
                 android:bottomLeftRadius="4dp"
                 android:bottomRightRadius="4dp"
