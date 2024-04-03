@@ -4,5 +4,7 @@
     <string name="name_pokemon">Bulbasaur</string>
     <string name="type1">Type 1</string>
     <string name="type2">Type 2</string>
+    <string name="search_bar">Buscar</string>
+    <string name="search_for_pokemon">Buscar Pokemon</string>
 
 </resources>
