@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRecyclerView(dataSet: PokemonAll) {
 
-        val rvPokemon = binding.rvPokemons
+        val rvPokemon = binding.rvPokemon
 
         rvPokemon.layoutManager = LinearLayoutManager(this)
         rvPokemon.adapter = PokemonAdapter(dataSet) {
