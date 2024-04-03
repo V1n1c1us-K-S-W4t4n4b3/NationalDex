@@ -26,14 +26,14 @@ class SearchAdapter (
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-            val name = dataSet.results[position].name
+            val name = filteredDataSet[position].name
             viewHolder.binding.tvNamePokemon.text = name
             viewHolder.itemView.setOnClickListener {
-                onItemClicked(dataSet.results[position])
+                onItemClicked(filteredDataSet[position])
             }
         }
 
-        override fun getItemCount() = dataSet.results.size
+        override fun getItemCount() = filteredDataSet.size
 
     override fun getFilter(): Filter {
         return object : Filter() {
